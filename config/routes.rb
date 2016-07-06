@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :food_items
   root 'home#index'
   get 'contact_us' => 'home#contact_us'
   get 'menu' => 'home#menu'
