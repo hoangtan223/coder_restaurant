@@ -1,5 +1,7 @@
 class FoodItem < ApplicationRecord
-	validates :name, :section, :price, presence: true
+	belongs_to :section
+
+	validates :name, :price, presence: true
 	validates :price, numericality: {greater_than_or_equal_to: 0 }
 
 	def image_url

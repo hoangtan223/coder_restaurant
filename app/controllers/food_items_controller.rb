@@ -15,6 +15,7 @@ class FoodItemsController < ApplicationController
   # GET /food_items/new
   def new
     @food_item = FoodItem.new
+    @sections = Section.all
   end
 
   # GET /food_items/1/edit
@@ -69,6 +70,6 @@ class FoodItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_item_params
-      params.require(:food_item).permit(:name, :description, :price, :section, :remote_image_url)
+      params.require(:food_item).permit(:name, :description, :price, :section_id, :remote_image_url)
     end
 end
