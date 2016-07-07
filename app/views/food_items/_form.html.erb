@@ -28,7 +28,7 @@
 
   <div class="form-group">
     <%= f.label :section, class: 'form-control-label' %>
-    <%= f.collection_select :section_id, sections, :id, :section_name, include_blank: false  %>
+    <%= f.collection_select :section_id, sections, :id, :section_name, include_blank: false, selected: f.object.section_id  %>
   </div> 
 
   <div class="form-group">

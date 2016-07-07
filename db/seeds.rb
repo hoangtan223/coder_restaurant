@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+section_list = [
+	[ "Lunch", "Lunch dishes" ],
+  [ "Dinner", "Dinner dishes" ],
+  [ "Snack", "Snack dishes" ]
+]
+
+section_list.each do |name, desc| 
+	unless Section.exists? :section_name => name
+		Section.create(section_name: name, description: desc)
+	end
+end
