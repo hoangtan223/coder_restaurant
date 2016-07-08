@@ -7,9 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 section_list = [
+	["Breakfast", "Breakfast dishes"]
 	[ "Lunch", "Lunch dishes" ],
-  [ "Dinner", "Dinner dishes" ],
-  [ "Snack", "Snack dishes" ]
+  	[ "Dinner", "Dinner dishes" ],
+  	[ "Drink", "Drinks" ]
 ]
 
 section_list.each do |name, desc| 

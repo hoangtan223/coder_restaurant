@@ -33,6 +33,7 @@ class FoodItemsController < ApplicationController
         format.html { redirect_to @food_item, notice: 'Food item was successfully created.' }
         format.json { render :show, status: :created, location: @food_item }
       else
+        @sections = Section.all   
         format.html { render :new }
         format.json { render json: @food_item.errors, status: :unprocessable_entity }
       end
@@ -47,6 +48,7 @@ class FoodItemsController < ApplicationController
         format.html { redirect_to @food_item, notice: 'Food item was successfully updated.' }
         format.json { render :show, status: :ok, location: @food_item }
       else
+        @sections = Section.all
         format.html { render :edit }
         format.json { render json: @food_item.errors, status: :unprocessable_entity }
       end
@@ -61,6 +63,10 @@ class FoodItemsController < ApplicationController
       format.html { redirect_to food_items_url, notice: 'Food item was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def search
+     @food_items = FoodItem.search_by_name(params[:name])
   end
 
   private

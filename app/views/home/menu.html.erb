@@ -2,18 +2,9 @@
 
 
 <div class="btn-group" role="group" aria-label="Basic example">
-  <% @sections.each do |section| %>
+	<% @sections.each do |section| %>
 	<%= link_to section.section_name, menu_path(section: section.section_name), class: 'btn btn-secondary' %>
-  <% end %>
+	<% end %>
 </div>
 
-	<% @food_items.each do |food_item| %>
-		<div class="list-group-item">
-			<div class="card">
-				<div class="card-header"><%= food_item.name %></div>
-				<div class="card-block">
-					<%= image_tag food_item.image_url %>
-				</div>
-			</div>
-		</div>
-	<% end %>
+<%= render 'food_items/food_item_cards', food_items: @food_items %>
