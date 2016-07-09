@@ -4,15 +4,11 @@
 			<% food_items.each do |food_item| %>
 			<div class="col-md-4 col-xs-6">
 				<div class="card">
-				<!-- <div class="card-header"><%= food_item.name %></div>
-				<div class="card-block">
-					<%= image_tag food_item.image_url %>
-				</div> -->
-				<%= image_tag food_item.image_url, class: 'card-img-top img-fluid' %>
+				<%= link_to (image_tag food_item.image_url, class: 'card-img-top img-fluid'), food_item_path(food_item) %>
 				<div class="card-block">
 					<h4 class="card-title"><%= food_item.name %></h4>
-					<p class="card-text"><%= food_item.description %></p>
-					<p class="card-text"><small class="text-muted"><%= food_item.price %></small></p>
+					<p class="card-text"><%= number_to_currency food_item.price, locale: :vi, precision: 0 %></p>
+					<!-- <p class="card-text"><small class="text-muted"><%= food_item.price %></small></p> -->
 				</div>
 			</div>
 		</div>
