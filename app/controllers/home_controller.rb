@@ -7,10 +7,13 @@ class HomeController < ApplicationController
 
   def menu	
   	@sections = Section.all
-  	if params[:section]
-  		@food_items = Section.where(section_name: params[:section]).take.food_items
-  	else
-  		@food_items = FoodItem.all
-  	end
+
+  	@food_items = FoodItem.get_menu_by_params(params[:section], params[:orderby])
+  	# if params[:section]
+  	# 	@food_items = Section.where(section_name: params[:section]).take.food_items
+  	# else
+  	# 	@food_items = FoodItem.all
+  	#end
+
   end
 end

@@ -1,10 +1,17 @@
 <h1>Our Menu</h1>
 
-
-<div class="btn-group" role="group" aria-label="Basic example">
-	<% @sections.each do |section| %>
-	<%= link_to section.section_name, menu_path(section: section.section_name), class: 'btn btn-secondary' %>
-	<% end %>
+<div class="row">
+	<div class="btn-group col-md-5" role="group" aria-label="Basic example">
+		<% @sections.each do |section| %>
+		<%= link_to section.section_name, menu_path(section: section.section_name), class: 'btn btn-secondary' %>
+		<% end %>
+	</div>
+	<div id="order-dropdown" class="col-md-7">
+		<%= form_tag menu_path, method: "get" do %>
+		<%= hidden_field_tag 'section', params[:section] %>
+		<%= select_tag "orderby", options_for_select([['alphabetical', 'alphabet'], ['price low to high', 'prlowtohigh'], ['price high to low', 'prhightolow']], params[:orderby]), {:prompt => 'Sort by'} %>
+		<%= submit_tag "Sort", :name => nil %>
+		<% end %>
+	</div>
 </div>
-
 <%= render 'food_items/food_item_cards', food_items: @food_items %>
