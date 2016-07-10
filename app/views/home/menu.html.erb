@@ -8,7 +8,9 @@
 	</div>
 	<div id="order-dropdown" class="col-md-7">
 		<%= form_tag menu_path, method: "get" do %>
+		<% if params[:section] %>
 		<%= hidden_field_tag 'section', params[:section] %>
+		<% end %>
 		<%= select_tag "orderby", options_for_select([['alphabetical', 'alphabet'], ['price low to high', 'prlowtohigh'], ['price high to low', 'prhightolow']], params[:orderby]), {:prompt => 'Sort by'} %>
 		<%= submit_tag "Sort", :name => nil %>
 		<% end %>
