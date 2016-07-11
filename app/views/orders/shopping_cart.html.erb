@@ -15,7 +15,7 @@
 			<%= f.label :address, class: 'form-control-label' %>
 			<%= f.text_field :address, class: 'form-control' %>
 		</div>
-		<% if @order.order_details.count > 0 %>
+		<% if @order.order_details.any? %>
 		<%= f.submit 'Check out'%>
 		<% end %>
 		<% end %>

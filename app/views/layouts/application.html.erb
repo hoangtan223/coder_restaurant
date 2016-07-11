@@ -19,6 +19,9 @@
 			<li class="nav-item <%= 'active' if current_page?(contact_us_path)%>">
 				<%= link_to "Contact Us", contact_us_path, class: 'nav-link' %>
 			</li>
+			<li class="nav-item <%= 'active' if current_page?(shopping_cart_path)%>">
+				<%= link_to "Shopping Cart", shopping_cart_path, class: 'nav-link' %>
+			</li>
 		</ul>
 		<%= form_tag search_food_item_path, class: 'form-inline pull-xs-right', :method => 'get', :enforce_utf8 => false do %>
 			<%= text_field_tag :name, params[:name], class: 'form-control' %>
