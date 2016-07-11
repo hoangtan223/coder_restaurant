@@ -1,0 +1,13 @@
+<h1>Thank you for ordering</h1>
+<div>This is your order's info</div>
+<div>Name: <%= @order.customer_name %></div>
+<div>Phone: <%= @order.phone_number %></div>
+<div>Address: <%= @order.address %></div>
+<div>Total: <%= @order.total_price %></div>
+<ul>
+	<% @order.order_details.each do |detail|%>
+	<li>
+		<%= detail.food_item.name %>
+	</li>
+	<% end %>
+</ul>

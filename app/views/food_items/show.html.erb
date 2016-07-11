@@ -10,10 +10,17 @@
         <%= image_tag @food_item.image_url, id: 'detail-image' %>
       </div>
       <div id="detail-panel" class="col-md-8">
-        <div id="price" class="fa fa-money col-xs-4">
-          <%= number_to_currency @food_item.price, locale: :vi, precision: 0 %> / 1 unit
+      <div class="row">
+          <div id="price" class="fa fa-money col-xs-4">
+            <%= number_to_currency @food_item.price, locale: :vi, precision: 0 %>
+          </div>
+          <div id="section" class="col-xs-2 pull-xs-right"><%= @food_item.section.section_name %></div>
         </div>
-        <div id="section" class="col-xs-2 pull-xs-right"><%= @food_item.section.section_name %></div>
+        <%= form_tag add_to_cart_path do %>
+        <%= text_field :order_detail, :quantity, :value => '1'%>
+        <%= hidden_field_tag 'order_detail[item_id]', @food_item.id %>
+        <%= submit_tag "Add to cart" %>
+        <% end %>
         <div id="food-desc" class="col-xs-12">
           <%= @food_item.description %>
         </div>
