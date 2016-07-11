@@ -4,7 +4,7 @@
 
 Submitted by: TAN BUI
 
-Time spent: **20** hours spent in total
+Time spent: **10** hours spent in total
 
 URL: **hhttps://warm-badlands-98757.herokuapp.com**
 
