@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
 	def new
-		p session[:cart_items]
 		if session[:cart_items]
 			item_hash = OrderDetailHelper::to_hash_cart(session[:cart_items])
 
